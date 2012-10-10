@@ -78,3 +78,9 @@ stdClass Object
 
 )
 ```
+
+## Notes
+
+* This library uses GD.
+* load() and setPath() require *valid* relative or absolute path.
+* Supported image types currently is with PNG and JPG.
