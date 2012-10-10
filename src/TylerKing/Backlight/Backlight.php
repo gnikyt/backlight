@@ -23,7 +23,8 @@ class Backlight
             $path,
             $info,
             $width,
-            $height;
+            $height,
+            $result;
 
     public function __construct( )
     {
@@ -126,6 +127,11 @@ class Backlight
     public function getHeight( )
     {
         return $this->height;
+    }
+
+    public function getResult( )
+    {
+        return $this->result;
     }
 
     private function rgbToHsv( $red, $green, $blue )
@@ -283,15 +289,17 @@ class Backlight
         $glow_rgb   = $this->hsvToRgb( $hue, $saturation, $value );
         $glow_hex   = $this->rgbToHex( $glow_rgb[ 0 ], $glow_rgb[ 1 ], $glow_rgb[ 2 ] );
 
-        return  (object) array(
-                    'background'    => (object) array(
-                        'rgb'   => $background_rgb,
-                        'hex'   => $background_hex
-                    ),
-                    'glow'          => (object) array(
-                        'rgb'   => $glow_rgb,
-                        'hex'   => $glow_hex
-                    )
-                );
+        $this->result = (object) array(
+                            'background'    => (object) array(
+                                'rgb'   => $background_rgb,
+                                'hex'   => $background_hex
+                            ),
+                            'glow'          => (object) array(
+                                'rgb'   => $glow_rgb,
+                                'hex'   => $glow_hex
+                            )
+                        );
+
+        return $this->result;
     }
 }
