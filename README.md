@@ -12,8 +12,9 @@ Just create a composer.json file for your project:
 
 ```JSON
 {
+    "minimum-stability" : "dev"
     "require": {
-        "tyler-king/backlight": "1.0.*"
+        "tyler-king/backlight": "0.0.*"
     }
 }
 ```
