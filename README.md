@@ -14,7 +14,7 @@ Just create a composer.json file for your project:
 {
     "minimum-stability" : "dev"
     "require": {
-        "tyler-king/backlight": "dav-master"
+        "tyler-king/backlight": "dev-master"
     }
 }
 ```
