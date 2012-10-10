@@ -32,7 +32,7 @@ class Backlight
 
     private function error( $message )
     {
-        throw new Exception( $message );
+        throw new \Exception( $message );
     }
 
     public function setPath( $path )
@@ -245,6 +245,10 @@ class Backlight
 
     public function execute( )
     {
+        if ( !isset( $this->path ) || !isset( $this->width ) || !isset( $this->height ) ) {
+            return $this->error( 'Execution failed: No valid image suppied.' );
+        }
+
         $red_total      = 0;
         $green_total    = 0;
         $blue_total     = 0;
