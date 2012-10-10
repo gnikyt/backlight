@@ -1,0 +1,26 @@
+{
+    "name": "tyler-king/backlight",
+    "type": "library",
+    "description": "A pointless PHP library for getting the mean and glow background colors of an image or icon.",
+    "keywords": ["backlight"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tyler King",
+            "email": "tyler.king@newfie.co"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "TylerKing\\Backlight": "src"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0"
+        }
+    }
+}
