@@ -249,6 +249,40 @@ class Backlight
         return $this;
     }
 
+    public function image2map( )
+    {
+        if ( !isset( $this->path ) || !isset( $this->width ) || !isset( $this->height ) ) {
+            return $this->error( 'Execution failed: No valid image suppied.' );
+        }
+
+        $map = array( );
+        for ($x = 0; $x < $this->width; $x++) {
+            for ($y = 0; $y < $this->height; $y++) {
+                $rgb    = imagecolorat( $this->image, $x, $y );
+                $colors = imagecolorsforindex( $this->image, $rgb );
+
+                $map[ ] = array(
+                    $x,
+                    $y,
+                    $this->rgbToHex( $colors[ 'red' ], $colors[ 'green' ], $colors[ 'blue' ] )
+                );
+            }
+        }
+
+        return array_filter( $map );
+    }
+
+    public function image2html( )
+    {
+        $map  = $this->image2map( );
+        $html = '';
+        foreach( $map AS $entry ) {
+            $html .= '<div style="position:absolute;top:' . $entry[ 0 ] . 'px;left:' . $entry[ 1 ] . 'px;width:1px;height:1px;background-color:' . $entry[ 2 ] . ';"></div>';
+        }
+
+        return $html;
+    }
+
     public function execute( )
     {
         if ( !isset( $this->path ) || !isset( $this->width ) || !isset( $this->height ) ) {

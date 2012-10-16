@@ -4,6 +4,8 @@ Backlight is a pointless script inspired by the Ubuntu Unity Launcher. It will t
 and find it's mean background color as well as it's glow color. It will return an object with
 values in both RGB and HEX format for use.
 
+**New**: You can now convert an image to HTML/CSS.
+
 ## Fetch
 
 The recommended way to install Backlight is [through composer](http://packagist.org).
@@ -79,6 +81,22 @@ stdClass Object
 
 )
 ```
+
+**New:** You can now pointless-ly convert an image to HTML/CSS
+
+```php
+<?php
+
+use TylerKing\Backlight\Backlight;
+
+$backlight   = new Backlight;
+$chrome_icon = $backlight
+                   ->load( 'chrome-icon.png' )
+                   ->image2html( );
+file_put_contents( 'image.html', $chrome_icon );
+```
+
+By opening image.html in your browser you will now see the image in HTML/CSS format.
 
 ## Notes
 
